@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CounterApp</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f4f4f4;
+      }
+
+      .counterapp {
+        background: rgb(235, 206, 206);
+        padding: 2rem;
+        text-align: center;
+        border-radius: 8px;
+        width: 300px;
+      }
+
+      #counter {
+        font-size: 4rem;
+        margin: 1rem 0;
+      }
+
+      .button button {
+        padding: 10px 15px;
+        font-size: 1.2rem;
+        margin: 3px;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+      .button button:hover {
+       transform: scale(1.1);
+       transition: 0.2s;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="counterapp">
+      <h1>Counter App</h1>
+      <p id="counter">0</p>
+      <div class="button">
+        <button id="increases">+</button>
+        <button id="decreases">-</button>
+        <button id="resets">Reset</button>
+      </div>
+    </div>
+    <script>
+      const countDisplay = document.getElementById("counter");
+      const increase = document.getElementById("increases");
+      const decrease = document.getElementById("decreases");
+      const reset = document.getElementById("resets");
+      let count = 0;
+
+      function updateCount() {
+        countDisplay.textContent = count;
+        if (count > 0) {
+          countDisplay.style.color = "red";
+        }else {
+          countDisplay.style.color = "black";
+        }
+      }
+
+      increase.addEventListener("click", function () {
+        count++;
+        updateCount();
+      });
+      decrease.addEventListener("click", function () {
+       if(count > 0){
+        count--;
+        updateCount();
+       }
+      });
+      reset.addEventListener("click", function () {
+        count = 0;
+        updateCount();
+      });
+    </script>
+  </body>
+</html>
